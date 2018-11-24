@@ -1,0 +1,76 @@
+
+    <html>
+    <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <script type="text/javascript" src="../vis/vis.js"></script>
+      <link href="../vis/vis.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">  
+    </head>
+    <body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="b4dced2c-6699-4f77-b29a-381b333ce08a"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="configure"></div>
+            </div>
+        </div>
+    </div>    
+
+    <script type="text/javascript">
+      var nodes = [{"id": "REQ-SDR-005", "label": "REQ-SDR-005", "group": "RequirementSDR"}, {"id": "REQ-SDR-068", "label": "REQ-SDR-068", "group": "RequirementSDR"}, {"id": "REQ-SDR-058", "label": "REQ-SDR-058", "group": "RequirementSDR"}, {"id": "REQ-SDR-041", "label": "REQ-SDR-041", "group": "RequirementSDR"}, {"id": "REQ-SDR-099", "label": "REQ-SDR-099", "group": "RequirementSDR"}, {"id": "REQ-SDR-087", "label": "REQ-SDR-087", "group": "RequirementSDR"}, {"id": "REQ-RS-011", "label": "REQ-RS-011", "group": "RequirementRS"}, {"id": "REQ-SDR-082", "label": "REQ-SDR-082", "group": "RequirementSDR"}, {"id": "REQ-SDR-020", "label": "REQ-SDR-020", "group": "RequirementSDR"}, {"id": "REQ-SDR-017", "label": "REQ-SDR-017", "group": "RequirementSDR"}, {"id": "REQ-RS-012", "label": "REQ-RS-012", "group": "RequirementRS"}, {"id": "REQ-RS-013", "label": "REQ-RS-013", "group": "RequirementRS"}, {"id": "REQ-RS-014", "label": "REQ-RS-014", "group": "RequirementRS"}];
+      var edges = [{"from": "REQ-RS-013", "to": "REQ-SDR-068"}, {"from": "REQ-RS-011", "to": "REQ-SDR-017"}, {"from": "REQ-RS-012", "to": "REQ-SDR-020"}, {"from": "REQ-RS-011", "to": "REQ-SDR-087"}, {"from": "REQ-RS-012", "to": "REQ-SDR-082"}, {"from": "REQ-RS-011", "to": "REQ-SDR-068"}, {"from": "REQ-RS-013", "to": "REQ-SDR-041"}, {"from": "REQ-RS-012", "to": "REQ-SDR-099"}, {"from": "REQ-RS-014", "to": "REQ-SDR-058"}, {"from": "REQ-RS-014", "to": "REQ-SDR-005"}];
+
+      var container = document.getElementById("b4dced2c-6699-4f77-b29a-381b333ce08a");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };  
+
+      var options = {
+          configure: {
+            enabled: true,
+            filter: 'physics',
+            //container: undefined,
+            showButton: true
+          },
+          nodes: {
+              shape: 'dot',
+              size: 25,
+              font: {
+                  size: 14
+              }
+          },
+          edges: {
+              font: {
+                  size: 14,
+                  align: 'middle'
+              },
+              color: 'gray',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 0.5}
+              },
+              smooth: {enabled: false}
+          },
+          physics: {
+              enabled: true,
+              barnesHut: {
+                  centralGravity: 0.1,
+                  springLength: 55
+                },
+               minVelocity: 0.75
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    
