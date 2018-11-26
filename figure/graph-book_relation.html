@@ -6,14 +6,14 @@
     </head>
     <body>
 
-    <div id="ff95be68-8d58-4e05-bf0c-dd1674b1a83a"></div>
+    <div id="9a87d185-85bf-416d-b562-d3b1ebe44ef1"></div>
     <div id="configure"></div>
 
     <script type="text/javascript">
-      var nodes = [{"id": 1, "label": "Beyonce", "group": "United States"}, {"id": 2, "label": "Barak Obama", "group": "United States"}, {"id": 3, "label": "Miley Cyrus", "group": "United States"}, {"id": 4, "label": "Pope Francis", "group": "Vatican"}, {"id": 5, "label": "Vladimir Putin", "group": "Rusia"}];
-      var edges = [{"from": 1, "to": 2, "label": "FAN_OF"}, {"from": 1, "to": 3}, {"from": 2, "to": 4}, {"from": 2, "to": 5}];
+      var nodes = [{"id": "GraphForDummies", "label": "GraphForDummies", "group": "Book"}, {"id": "Alan", "label": "Alan", "group": "Author"}];
+      var edges = [{"from": "Alan", "to": "GraphForDummies"}];
 
-      var container = document.getElementById("ff95be68-8d58-4e05-bf0c-dd1674b1a83a");
+      var container = document.getElementById("9a87d185-85bf-416d-b562-d3b1ebe44ef1");
 
       var data = {
         nodes: nodes,
@@ -22,8 +22,19 @@
 
       var options = {
           configure: {
-            enabled: true,
-            filter: 'physics',
+            enabled: false,
+            filter: function (option, path) {
+                if (path.indexOf('physics') !== -1) {
+                  return true;
+                }
+                if (path.indexOf('layout') !== -1) {
+                  return true;
+                }
+                if (path.indexOf('smooth') !== -1 || option === 'smooth') {
+                  return true;
+                }
+                return false;
+              },
             //container: undefined,
             showButton: true
           },
